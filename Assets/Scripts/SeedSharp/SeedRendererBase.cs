@@ -15,9 +15,9 @@ namespace SeedSharp
             WorldToViewMatrix = Matrix3x2.CreateTranslation(.5f, 0);
         }
 
-        public abstract void DrawLine(Vector2 p1, Vector2 p2);
+        public abstract void DrawLine(Vector2 p1, Vector2 p2, Guid segmentGuid);
 
-        public abstract Task DrawLineAsync(Vector2 p1, Vector2 p2);
+        public abstract Task DrawLineAsync(Vector2 p1, Vector2 p2, Guid segmentGuid);
 
         public virtual void Render()
         {
@@ -43,7 +43,7 @@ namespace SeedSharp
             var p1World = Vector2.Transform(p1, matrix);
             var p2World = Vector2.Transform(p2, matrix);
 
-            DrawLine(p1World, p2World);
+            DrawLine(p1World, p2World, segment.InstanceID);
         }
 
         public virtual async Task RenderAsync()
@@ -70,7 +70,7 @@ namespace SeedSharp
             var p1World = Vector2.Transform(p1, matrix);
             var p2World = Vector2.Transform(p2, matrix);
 
-            await DrawLineAsync(p1World, p2World);
+            await DrawLineAsync(p1World, p2World, segment.InstanceID);
         }
 
         public virtual void SetViewportScale(Vector2 scale)
