@@ -1,6 +1,7 @@
 # Personal additions
 .DS_Store
 .vscode/
+.vsconfig
 
 # Unity stuff
 
