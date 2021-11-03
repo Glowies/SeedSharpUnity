@@ -52,7 +52,7 @@ namespace SeedSharp
             if (segment is null)
                 return;
 
-            float stepFactor = timeStep / 100;
+            float stepFactor = timeStep / 10;
 
             const float branchInterval = 2.7f;
             const float branchAngle = PlantMath.PI / 5;

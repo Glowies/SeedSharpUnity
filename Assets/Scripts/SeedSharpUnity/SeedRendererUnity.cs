@@ -29,8 +29,8 @@ public class SeedRendererUnity : SeedRendererBase
         var lineRenderer = _lines[segmentGuid];
         lineRenderer.SetPosition(0, new Vector3(p1.X, p1.Y, 0));
         lineRenderer.SetPosition(1, new Vector3(p2.X, p2.Y, 0));
-        lineRenderer.startWidth = .01f;
-        lineRenderer.endWidth = .01f;
+        lineRenderer.startWidth = .08f;
+        lineRenderer.endWidth = .08f;
     }
 
     public override Task DrawLineAsync(System.Numerics.Vector2 p1, System.Numerics.Vector2 p2, Guid segmentGuid)

@@ -6,6 +6,11 @@ using SeedSharp;
 public class SeedRendererBehaviour : MonoBehaviour
 {
     public GameObject LineSegmentPrefab;
+    public bool IsRunning
+    {
+        get;
+        private set;
+    }
 
     private PlantIterator _iterator;
     private SeedRendererUnity _renderer;
@@ -18,12 +23,21 @@ public class SeedRendererBehaviour : MonoBehaviour
         _renderer = new SeedRendererUnity(plant, LineSegmentPrefab);
 
         _iterator.Initialize();
+        IsRunning = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        _iterator.Iterate(Time.deltaTime * 1000);
-        _renderer.Render();
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            IsRunning = !IsRunning;
+        }
+
+        if (IsRunning)
+        {
+            _iterator.Iterate(Time.deltaTime * 1000);
+            _renderer.Render();
+        }
     }
 }
