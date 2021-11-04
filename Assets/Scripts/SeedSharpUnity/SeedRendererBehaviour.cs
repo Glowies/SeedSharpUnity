@@ -7,6 +7,7 @@ public class SeedRendererBehaviour : MonoBehaviour
 {
     public GameObject LineSegmentPrefab;
     public GameObject LeafSegmentPrefab;
+    public float StopTime = 10;
 
     public bool IsRunning
     {
@@ -38,8 +39,14 @@ public class SeedRendererBehaviour : MonoBehaviour
 
         if (IsRunning)
         {
-            _iterator.Iterate(Time.deltaTime * 1000);
+            float timeFactor =
+                1000 / (1 + Mathf.Pow(10, Time.timeSinceLevelLoad - StopTime + 1));
+
+            _iterator.Iterate(Time.deltaTime * timeFactor);
             _renderer.Render();
+
+            if (Time.timeSinceLevelLoad > StopTime)
+                IsRunning = false;
         }
     }
 }
