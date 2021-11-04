@@ -166,6 +166,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LineSegmentPrefab: {fileID: 7422936675308688252, guid: 01a9a72fa1fe24800bd42b4b2f4db687,
     type: 3}
+  LeafSegmentPrefab: {fileID: 1734139599496948476, guid: ff3aba415413a456fa1d62b9420b6c29,
+    type: 3}
 --- !u!1 &1057385433
 GameObject:
   m_ObjectHideFlags: 0

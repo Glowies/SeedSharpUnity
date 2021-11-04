@@ -6,6 +6,8 @@ using SeedSharp;
 public class SeedRendererBehaviour : MonoBehaviour
 {
     public GameObject LineSegmentPrefab;
+    public GameObject LeafSegmentPrefab;
+
     public bool IsRunning
     {
         get;
@@ -20,7 +22,7 @@ public class SeedRendererBehaviour : MonoBehaviour
     {
         var plant = new Plant();
         _iterator = new PlantIterator(plant);
-        _renderer = new SeedRendererUnity(plant, LineSegmentPrefab);
+        _renderer = new SeedRendererUnity(plant, LineSegmentPrefab, LeafSegmentPrefab);
 
         _iterator.Initialize();
         IsRunning = true;
