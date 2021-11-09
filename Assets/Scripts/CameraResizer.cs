@@ -22,11 +22,7 @@ public class CameraResizer : MonoBehaviour
         float camSize = sceneWidth;
 
         float aspectRatio = Screen.width / (float)Screen.height;
-        if (aspectRatio > 1)
-        {
-            camSize *= aspectRatio; 
-        }
-        else
+        if (aspectRatio < 1)
         {
             camSize /= aspectRatio;
         }
